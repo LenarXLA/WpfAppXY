@@ -7,6 +7,141 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1.3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <StackPanel>
+            <TextBlock Text="Введите шесть координат точек многоугольника:"
+                       Grid.Row="0"
+                       Foreground="Blue"
+                       FontSize="16"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="0" />
+            <Label>Вводить  X и Y через запятую(без пробела и именно запятая)</Label>
+        </StackPanel>
+
+        
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Точка 1:"
+                            />
+                <TextBox Name="OneDot" 
+                         Margin="20 0 20 0"
+                         MinWidth="100" >
+                    <TextBox.Text>
+                        <Binding Path="OneDotValue" UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Точка 2:"
+                />
+                <TextBox Name="TwoDot" 
+                         Margin="20 0 20 0"
+                         MinWidth="100" >
+                    <TextBox.Text>
+                        <Binding Path="TwoDotValue" UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Точка 3:"
+                />
+                <TextBox Name="ThreeDot" 
+                         Margin="20 0 20 0"
+                         MinWidth="100" >
+                    <TextBox.Text>
+                        <Binding Path="ThreeDotValue" UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Точка 4:"
+                />
+                <TextBox Name="FourDot" 
+                         Margin="20 0 20 0"
+                         MinWidth="100" >
+                    <TextBox.Text>
+                        <Binding Path="FourDotValue" UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Точка 5:"
+                />
+                <TextBox Name="FiveDot" 
+                         Margin="20 0 20 0"
+                         MinWidth="100" >
+                    <TextBox.Text>
+                        <Binding Path="FiveDotValue" UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0 15 0 0">
+                <TextBlock Text="Точка для проверки:"
+                />
+                <TextBox Name="CurrentDot" 
+                         Margin="20 0 20 0"
+                         MinWidth="100" >
+                    <TextBox.Text>
+                        <Binding Path="CurrentDotValue" UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+
+        </StackPanel>
+        
+        <StackPanel Grid.Column="0" Grid.Row="2"
+                    Margin="0 50 0 0">
+            <Button Name="GetResultBtn"
+                    MinWidth="60"
+                    Padding="5"
+                    Background="Crimson"
+                    Content="Проверить"
+                    Command="{Binding GetDotsResult}"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="0" Grid.Row="3">
+            <Button Name="GetCSV"
+                    MinWidth="60"
+                    Padding="5"
+                    Background="Bisque"
+                    Content="Загрузить данные с CSV"
+                    Command="{Binding GetDotsInCSV}"/>
+        </StackPanel>
+        
+        
+        <StackPanel Grid.Column="1" Grid.Row="0"
+                    Margin="20 0 20 0">
+            <TextBlock Text="Результат:"
+                       Grid.Row="0"
+                       Foreground="Brown"
+                       FontSize="16"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="0" />
+            <Label Name="Result"
+                   Content="{Binding Res}"></Label>
+        </StackPanel>
+        
+        
     </Grid>
 </Window>

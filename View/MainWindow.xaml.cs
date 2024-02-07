@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAppXY.ViewModel;
 
 namespace WpfAppXY
 {
@@ -23,6 +24,9 @@ namespace WpfAppXY
         public MainWindow()
         {
             InitializeComponent();
+            
+            // Передаем DataContext
+            DataContext = new MainVM();
         }
     }
 }
